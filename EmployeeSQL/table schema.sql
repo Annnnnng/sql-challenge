@@ -6,15 +6,17 @@ CREATE TABLE department (
 
 
 CREATE TABLE dept_employees (
-	emp_no INT,
-	dept_no TEXT
+	emp_no INT, 
+	dept_no TEXT,
+	FOREIGN KEY (dept_no) REFERENCES department(dept_no),
+	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
 
 CREATE TABLE dept_manager (
 	dept_no TEXT,
 	emp_no INT,
-	PRIMARY KEY (dept_no),
+	FOREIGN KEY (dept_no) REFERENCES department(dept_no),
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
